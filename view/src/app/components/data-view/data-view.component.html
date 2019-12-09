@@ -1,0 +1,197 @@
+<div class="card mb-3">
+  <div class="card-body">
+
+    <form class="form-control" #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)" class="card" style="padding: 10px;">
+    <div class="row no-gutters profile1 card-header">
+
+      <!--  -->
+            <div class="card-body text-primary card-title">
+                <div class="panel panel-primary filterable ">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">New data</h3>
+                        <div class="pull-right">
+                            <button class="btn btn-default btn-xs btn-filter" type="button"><span class="material-icons"> filter_list</span> Filter</button>
+                        </div>
+                    </div>
+                    <div style="overflow-x: auto">
+                      <table class="table responsive-table highlight table-striped table-sm" cellspacing="0" width="100%" >
+                          <thead>
+                              <tr class="filters" >
+                                  <th scope="col" ><input type="text" class="form-control"  placeholder="#" [value]="searchValue" disabled></th>
+                                  <th scope="col" ><input type="text" class="form-control"  placeholder="id" [value]="searchValue" disabled></th>
+                                  <th scope="col" ><input type="text" class="form-control"  placeholder="sensName" [value]="searchValue" disabled></th>
+                                  <th scope="col" ><input type="text" class="form-control"  placeholder="date" [value]="searchValue" disabled></th>
+                                  <th scope="col" ><input type="text" class="form-control"  placeholder="time" [value]="searchValue" disabled></th>
+                                  <th scope="col" ><input type="text" class="form-control"  placeholder="Temp" [value]="searchValue" disabled></th>
+                                  <th scope="col" ><input type="text" class="form-control"  placeholder="Humidity" [value]="searchValue" disabled></th>
+                                  <th scope="col" ><input type="text" class="form-control"  placeholder="Barometer" [value]="searchValue" disabled></th>
+                                  <th scope="col" ><input type="text" class="form-control"  placeholder="Accelerometer" [value]="searchValue" disabled></th>
+                                  <th scope="col" ><input type="text" class="form-control"  placeholder="Magnetometer" [value]="searchValue" disabled></th>
+                                  <th scope="col" ><input type="text" class="form-control"  placeholder="Gyroscope" [value]="searchValue" disabled></th>
+                                  <th scope="col" ><input type="text" class="form-control"  placeholder="Light" [value]="searchValue" disabled></th>
+                                  <th scope="col" ><input type="text" class="form-control"  placeholder="Battery" [value]="searchValue" disabled></th>
+                              </tr>
+                          </thead>
+                          <tbody class="" style="height: 400px">
+                              <tr *ngFor="let emp of SData; let i = index">
+                                  <td style="width: 100px">{{i + 1}}</td>
+                                  <td  >{{emp.id}}</td>
+                                  <td class="table-bordered" >{{emp.sensName}}</td>
+                                  <td >{{emp.date}}</td>
+                                  <td class="table-bordered" >{{emp.time}}</td>
+                                  <td >{{emp.date}}</td>
+                                  <td class="table-bordered" >{{emp.Temp}}</td>
+                                  <td >{{emp.Humidity}}</td>
+                                  <td class="table-bordered" >{{emp.Barometer}}</td>
+                                  <td >{{emp.Accelerometer}}</td>
+                                  <td class="table-bordered" >{{emp.Magnetometer}}</td>
+                                  <td >{{emp.Gyroscope}}</td>
+                                  <td class="table-bordered" >{{emp.Light}}</td>
+                                  <td >{{emp.Battery}}</td>
+                                  <td style="width: 100px">
+                                      <a class="action-btn" (click)="onEdit(emp)">
+                                        <i class="material-icons" >edit</i>
+                                      </a>
+                                      <a class="action-btn" style="float: right" (click)="onDelete(emp.id,employeeForm)">
+                                        <i class="material-icons">delete</i>
+                                      </a>
+                                    </td>
+                                </tr>
+                                <tr class="table-bordered">
+                                  <td style="text-align: center">End</td>
+                                </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      </div>
+                  </div>
+        </div>
+        <div class="row" style="margin: 20px;">
+            <!-- <div class="col">
+                <input type="text" name="id" #name="ngModel" [(ngModel)]="dataMnDetails.id" disabled>
+                <div class="row" style="text-align: center">
+                  <div class="input-field col s12">
+                    <input type="text" name="sensName" #name="ngModel" [(ngModel)]="dataMnDetails.sensName" placeholder="Enter Sensor name" required>
+                  </div>
+                </div>
+            </div> -->
+            <!-- <div class="col">
+                  <div class="row" style="text-align: center">
+                    <div class="input-field col s12">
+                      <input  type="text" name="date" #name="ngModel" [(ngModel)]="dataMnDetails.date" placeholder="Enter Data type">
+                    </div>
+                  </div>
+            </div> -->
+            <!-- <div class="col">
+                    <div class="input-field "> 
+                      <button class= "col-md-3 d-none d-sm-inline-block btn btn-sm btn btn-light" type="button" (click)="resetForm(employeeForm)" style="margin: 5px;">Reset</button>
+                      <button class="col-md-3 d-none d-sm-inline-block btn btn-sm btn btn-light " type="submit" >Submit</button>
+                    </div>
+            </div> -->
+          </div>
+          <div class="row">
+              <div class="col text-center">
+                  <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fa fa-download fa-sm text-white-50"></i> Generate Report</a>
+              </div>
+              <div class="col text-center">
+                  <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fa fa-download fa-sm text-white-50"></i> All Save</a>
+              </div>
+          </div>
+  </form>
+  <!-- ----- -->
+  <form class="form-control" #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)" class="card" style="padding: 10px;">
+    <div class="row no-gutters profile1 card-header">
+
+      <!--  -->
+            <div class="card-body text-primary card-title">
+                <div class="panel panel-primary filterable">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">New data</h3>
+                        <div class="pull-right">
+                            <button type="button" class="btn btn-default btn-xs btn-filter"><span class="material-icons"> filter_list</span> Filter</button>
+                        </div>
+                    </div>
+                    <div style="overflow-x: auto">
+                      <table class="table responsive-table highlight table-striped table-sm" cellspacing="0" width="100%">
+                          <thead>
+                              <tr class="filters" >
+                                  <th scope="col" style="width:50px"><input type="text" class="form-control"  placeholder="#" [value]="searchValue" disabled></th>
+                                  <th scope="col" ><input type="text" class="form-control"  placeholder="id" [value]="searchValue" disabled></th>
+                                  <th scope="col" ><input type="text" class="form-control"  placeholder="sensName" [value]="searchValue" disabled></th>
+                                  <th scope="col" ><input type="text" class="form-control"  placeholder="date" [value]="searchValue" disabled></th>
+                                  <th scope="col" ><input type="text" class="form-control"  placeholder="time" [value]="searchValue" disabled></th>
+                                  <th scope="col" ><input type="text" class="form-control"  placeholder="Temp" [value]="searchValue" disabled></th>
+                                  <th scope="col" ><input type="text" class="form-control"  placeholder="Humidity" [value]="searchValue" disabled></th>
+                                  <th scope="col" ><input type="text" class="form-control"  placeholder="Barometer" [value]="searchValue" disabled></th>
+                                  <th scope="col" ><input type="text" class="form-control"  placeholder="Accelerometer" [value]="searchValue" disabled></th>
+                                  <th scope="col" ><input type="text" class="form-control"  placeholder="Magnetometer" [value]="searchValue" disabled></th>
+                                  <th scope="col" ><input type="text" class="form-control"  placeholder="Gyroscope" [value]="searchValue" disabled></th>
+                                  <th scope="col" ><input type="text" class="form-control"  placeholder="Light" [value]="searchValue" disabled></th>
+                                  <th scope="col" ><input type="text" class="form-control"  placeholder="Battery" [value]="searchValue" disabled></th>
+                              </tr>
+                          </thead>
+                          <tbody class="" style="height: 400px">
+                              <tr *ngFor="let emp of SData; let i = index">
+                                  <td style="width: 100px">{{i + 1}}</td>
+                                  <td  >{{emp.id}}</td>
+                                  <td class="table-bordered" >{{emp.sensName}}</td>
+                                  <td >{{emp.date}}</td>
+                                  <td class="table-bordered" >{{emp.time}}</td>
+                                  <td >{{emp.date}}</td>
+                                  <td class="table-bordered" >{{emp.Temp}}</td>
+                                  <td >{{emp.Humidity}}</td>
+                                  <td class="table-bordered" >{{emp.Barometer}}</td>
+                                  <td >{{emp.Accelerometer}}</td>
+                                  <td class="table-bordered" >{{emp.Magnetometer}}</td>
+                                  <td >{{emp.Gyroscope}}</td>
+                                  <td class="table-bordered" >{{emp.Light}}</td>
+                                  <td >{{emp.Battery}}</td>
+                                  <td style="width: 100px">
+                                      <a class="action-btn" (click)="onEdit(emp)">
+                                        <i class="material-icons" >edit</i>
+                                      </a>
+                                      <a class="action-btn" style="float: right" (click)="onDelete(emp.id,employeeForm)">
+                                        <i class="material-icons">delete</i>
+                                      </a>
+                                    </td>
+                                </tr>
+                                <tr class="table-bordered">
+                                  <td style="text-align: center">End</td>
+                                </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      </div>
+                  </div>
+        </div>
+        <div class="row" style="margin: 20px;">
+            <div class="col">
+                <input type="text" name="_id" #name="ngModel" [(ngModel)]="dataMnDetails.id" disabled>
+                <div class="row" style="text-align: center">
+                  <div class="input-field col s12">
+                    <input type="text" name="sensName" #name="ngModel" [(ngModel)]="dataMnDetails.sensName" placeholder="Enter Sensor name" required>
+                  </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="row" style="text-align: center">
+                    <div class="input-field col s12">
+                      <input  type="text" name="date" #name="ngModel" [(ngModel)]="dataMnDetails.date" placeholder="Enter Data type">
+                    </div>
+                  </div>
+            </div>
+            <div class="col">
+                    <div class="input-field "> 
+                      <button class= "col-md-3 d-none d-sm-inline-block btn btn-sm btn btn-light" type="button" (click)="resetForm(employeeForm)" style="margin: 5px;">Reset</button>
+                      <button class="col-md-3 d-none d-sm-inline-block btn btn-sm btn btn-light " type="submit" >Submit</button>
+                    </div>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col text-center">
+                  <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fa fa-download fa-sm text-white-50"></i> Generate Report</a>
+              </div>
+          </div>
+  </form>
+</div>
+</div>
