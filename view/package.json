@@ -31,7 +31,7 @@
     "bootstrap-themes": "^1.0.2",
     "font-awesome": "^4.7.0",
     "ionicons": "^4.6.3",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "rxjs": "~6.4.0",
     "smooth-scroll": "^16.1.0",
     "tslib": "^1.10.0",
